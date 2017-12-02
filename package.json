@@ -3,12 +3,27 @@
   "version": "1.0.0",
   "description": "Simple one page website for Natours",
   "main": "app.js",
+  "browserslist": [
+    "> 1%",
+    "last 10 versions"
+  ],
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver" : "live-server",
+    "start" : "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss css/style.concat.css -u autoprefixer -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
   },
   "author": "Jakub Bodak",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "autoprefixer": "^7.1.6",
+    "concat": "^1.0.3",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "postcss-cli": "^4.1.1"
   }
 }
