@@ -112,7 +112,6 @@
 		column-rule: 1px solid $color-grey-light-2;
 
 		@include respond(phone) {
-			font-size: 1rem;
 			column-count: 1;
 		}
 		

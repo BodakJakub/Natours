@@ -601,7 +601,6 @@ body {
     hyphens: auto; }
     @media (max-width: 37.5em) {
       .popup__text {
-        font-size: 1rem;
         column-count: 1; } }
 
 .story {
