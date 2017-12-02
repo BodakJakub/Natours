@@ -23,6 +23,11 @@
 		opacity: 0;
 		transform: translate(-50%, -50%) scale(.25);
 		transition: all .5s .2s;
+
+		@include respond(tab-land) {
+			width: 100%;
+			border-radius: 0;
+		}
 	}
 
 	&:target {
@@ -57,6 +62,13 @@
 		width: 33.333334%;
 		display: table-cell;
 
+		@include respond(tab-port) {
+			width: 100%;
+			display: inline-block;
+
+			clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%);
+		}
+
 	}
 	&__right{
 		width: 66.666666%;
@@ -64,11 +76,27 @@
 		vertical-align: middle;
 		padding: 5rem 3rem;
 
+		@include respond(tab-port) {
+			width: 100%;
+			display: inline-block;
+			padding: 0 3rem 5rem 3rem;
+		}
+
+		@include respond(phone) {
+			text-align: center;
+		}
+
 	}
 
 	&__img{
 		display: block;
 		width: 100%;
+
+		@include respond(tab-port) {
+			width: 50%;
+			display: inline-block;
+			float: left;
+		}
 	}
 
 	&__text{
@@ -82,6 +110,11 @@
 		column-count: 2;
 		column-gap: 4rem;
 		column-rule: 1px solid $color-grey-light-2;
+
+		@include respond(phone) {
+			font-size: 1rem;
+			column-count: 1;
+		}
 		
 		//doesn't currently work on Linux
 		-moz-hyphens: 		auto;
